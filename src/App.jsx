@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom"
 import Properties from './Properties'
 import RegisterPage from './Register'
 import Boglanish from './Conttact'
+import LoginPage from './Login'
+import Favourite from './Favourite'
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
       <Route path="/Properties" element={<Properties/>} />
       <Route path="/RegisterPage" element={<RegisterPage/>} />
       <Route path="/Contacts" element={<Boglanish/>} />
+      <Route path="/Login" element={<LoginPage/>} />
+      <Route path="/Favourite" element={<Favourite/>} />
     </Routes>
   )
 }

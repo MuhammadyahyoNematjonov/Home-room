@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from './Nabar';
 
-const Properties = () => {
+const Favourite = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const properties = [
@@ -57,48 +57,7 @@ const Properties = () => {
       sqft: 1200,
       price: "7,500",
       image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop"
-    }, {
-      id: 2,
-      title: "Modern Villa with Pool",
-      location: "Quincy St, Brooklyn, NY, USA",
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      sqft: 1200,
-      price: "7,500",
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop"
-    }, {
-      id: 2,
-      title: "Modern Villa with Pool",
-      location: "Quincy St, Brooklyn, NY, USA",
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      sqft: 1200,
-      price: "7,500",
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop"
-    }, {
-      id: 2,
-      title: "Modern Villa with Pool",
-      location: "Quincy St, Brooklyn, NY, USA",
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      sqft: 1200,
-      price: "7,500",
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop"
     },
-    {
-      id: 3,
-      title: "Luxury House Design",
-      location: "Quincy St, Brooklyn, NY, USA",
-      beds: 4,
-      baths: 5,
-      garage: 1,
-      sqft: 1200,
-      price: "7,500",
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop"
-    }
   ];
 
   const features = [
@@ -228,7 +187,7 @@ const Properties = () => {
 
       <section className="py-12 bg-gray-100 mt-[-600px]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Properties</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Favourite</h2>
           <h3 className='text-gray-400 ml-[550px]'>Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.</h3>
           <div className="relative">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -292,6 +251,7 @@ const Properties = () => {
       <footer className="bg-slate-800 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Contact Us */}
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
               <div className="space-y-2 text-gray-300">
@@ -378,4 +338,4 @@ const Properties = () => {
 
 
 
-export default Properties;
+export default Favourite;
