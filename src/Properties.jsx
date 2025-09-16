@@ -226,7 +226,7 @@ const Properties = () => {
 
 
 
-      <section className="py-12 bg-gray-100 mt-[-600px]">
+      <section className="py-12 bg-gray-100 mt-[-800px]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Properties</h2>
           <h3 className='text-gray-400 ml-[550px]'>Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.</h3>
@@ -342,7 +342,6 @@ const Properties = () => {
               </ul>
             </div>
 
-            {/* List by Category 2 */}
             <div>
               <h3 className="text-lg font-semibold mb-4">List by Category</h3>
               <ul className="space-y-2 text-gray-300">

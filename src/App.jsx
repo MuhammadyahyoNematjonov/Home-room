@@ -6,6 +6,9 @@ import RegisterPage from './Register'
 import Boglanish from './Conttact'
 import LoginPage from './Login'
 import Favourite from './Favourite'
+import PropertiesPage from './MY-PROPETI'
+import AddPropertyForm from './xarita'
+import ProfilePage from './Profile'
 
 
 function App() {
@@ -19,7 +22,10 @@ function App() {
       <Route path="/Contacts" element={<Boglanish/>} />
       <Route path="/Login" element={<LoginPage/>} />
       <Route path="/Favourite" element={<Favourite/>} />
-    </Routes>
+      <Route path="/my-pp" element={<PropertiesPage/>} />
+      <Route path="/my" element={<AddPropertyForm/>} />
+      <Route path="/profile" element={<ProfilePage/>} />
+</Routes>
   )
 }
 

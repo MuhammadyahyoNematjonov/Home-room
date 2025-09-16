@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,8 @@ const RegisterPage = () => {
     password: '',
     confirmPassword: ''
   });
+  
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -19,11 +21,63 @@ const RegisterPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Registration data:', formData);
+  // Sohta token yaratish funksiyasi
+  const generateFakeToken = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let token = '';
+    for (let i = 0; i < 64; i++) {
+      token += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return token;
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Parollar bir xil ekanligini tekshirish
+    if (formData.password !== formData.confirmPassword) {
+      alert('Parollar mos kelmaydi!');
+      return;
+    }
+
+    // Barcha maydonlar to'ldirilganini tekshirish
+    if (!formData.login || !formData.firstName || !formData.lastName || 
+        !formData.email || !formData.userRole || !formData.password) {
+      alert('Barcha maydonlarni to\'ldiring!');
+      return;
+    }
+
+    try {
+      console.log('Registration data:', formData);
+      
+      // Sohta token yaratish
+      const fakeToken = generateFakeToken();
+      
+      // Token va user ma'lumotlarini local storage'ga saqlash
+      localStorage.setItem('token', fakeToken);
+      localStorage.setItem('userInfo', JSON.stringify({
+        id: Math.floor(Math.random() * 1000) + 1, // Sohta ID
+        login: formData.login,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        userRole: formData.userRole,
+        registeredAt: new Date().toISOString()
+      }));
+      
+      // // Muvaffaqiyat xabari
+      // alert('Ro\'yxatdan o\'tish muvaffaqiyatli amalga oshirildi!');
+      
+      // Bosh sahifaga yo'naltirish
+      navigate('/');
+      
+    } catch (error) {
+      console.error('Xatolik:', error);
+      alert('Ro\'yxatdan o\'tishda xatolik yuz berdi!');
+    }
+  };
+
+  // Qolgan kod bir xil...
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -41,21 +95,15 @@ const RegisterPage = () => {
             </div>
             
             <nav className="flex items-center space-x-8">
-              <a href="#" className="text-white hover:text-blue-400 transition-colors">
-                <Link to="/">
+              <Link to="/" className="text-white hover:text-blue-400 transition-colors">
                 Home
-                </Link>
-              </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors">
-                <Link to="/Properties">
+              </Link>
+              <Link to="/Properties" className="text-white hover:text-blue-400 transition-colors">
                 Properties
-                </Link>
-              </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors">
-                <Link to="/">
+              </Link>
+              <Link to="/" className="text-white hover:text-blue-400 transition-colors">
                 Contacts
-                </Link>
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
@@ -166,9 +214,9 @@ const RegisterPage = () => {
           <div className="text-center mt-6">
             <p className="text-gray-600">
               Already have an account?{' '}
-              <a href="/login" className="text-blue-600 hover:text-blue-800 font-medium">
+              <Link to="/login" className="text-blue-600 hover:text-blue-800 font-medium">
                 Sign in
-              </a>
+              </Link>
             </p>
           </div>
         </div>

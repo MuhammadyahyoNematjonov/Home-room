@@ -97,7 +97,7 @@ const Navbar = () => {
                     </div>
                   </Link>
                   <Link 
-                    to="/my-properties" 
+                    to="/my-pp" 
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
                     onClick={() => setShowProfileMenu(false)}
                   >

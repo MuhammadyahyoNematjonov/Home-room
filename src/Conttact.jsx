@@ -42,7 +42,7 @@ const Boglanish = () => {
     {/* Qolgan content */}
   </div>
 
-      <main className="pt-8 pb-16b mt-[-650px]">
+      <main className="pt-8 pb-16b mt-[-850px]">
         <section className={`py-16 transition-colors duration-300 ${qoraTema ? "bg-gray-900" : "bg-white"}`}>
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
